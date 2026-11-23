@@ -1,6 +1,6 @@
 import { profile } from "@/data/profile";
 import ProfileHeader from "@/components/ProfileHeader";
-import LinkCard from "@/components/LinkCard";
+import LinkList from "@/components/LinkList";
 import ThemeToggle from "@/components/ThemeToggle";
 
 // wireframe.png 레이아웃: 원형 프로필 사진 → 이름 → 한 줄 소개 → 링크 카드 3개(세로)
@@ -13,13 +13,7 @@ export default function Home() {
 
       <ProfileHeader name={profile.name} bio={profile.bio} image={profile.image} />
 
-      <ul className="mt-10 flex w-full max-w-xs flex-col gap-4">
-        {profile.links.map((link) => (
-          <li key={link.id}>
-            <LinkCard link={link} />
-          </li>
-        ))}
-      </ul>
+      <LinkList links={profile.links} />
     </main>
   );
 }
